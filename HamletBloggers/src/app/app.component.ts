@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, Directive } from '@angular/core';
 import { Event } from '@angular/router';
 import { HomeComponent } from './home/home.component';
+// import { ROUTER_DIRECTIVE  } from "@angular/router";
+
 
 @Component({
   selector: 'app-root',

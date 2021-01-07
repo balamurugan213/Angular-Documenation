@@ -167,3 +167,44 @@ export class AppComponent {
   }
 }
 ```
+
+---
+
+## Adding navigation
+
+### Associate a URL path with a component
+
+- In app.module.ts, add a route for product details, with a path
+
+```ts
+@NgModule({
+  .
+  .
+  .
+  imports: [
+    BrowserModule,
+    ReactiveFormsModule,
+    RouterModule.forRoot([
+      { path: '/', component: ProductListComponent },
+      { path: '/products', component: ProductDetailsComponent },
+    ])
+  ],
+```
+
+- This router-outlet is custom tag. So when the path is **/products** view of ProductDetailsComponent will be load in the place of router-outlet.
+
+```html
+<router-outlet></router-outlet>
+```
+
+## Adding links and Parameters
+
+- The RouterLink directive helps you customize the anchor element.
+
+```html
+<h3>
+    <a [title]="product.name + ' details'" [routerLink]="['/products', product.id]">
+      {{ product.name }}
+    </a>
+  </h3>
+```
