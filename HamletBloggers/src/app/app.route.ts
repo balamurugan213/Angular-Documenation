@@ -1,9 +1,10 @@
-import { DirectoryComponent } from "./directory/directory.component";
+
 import { HomeComponent } from "./home/home.component";
+import { NavComponent } from "./nav/nav.component";
 
 
 const APP_ROUTES=[
-    {path:'directory',component: DirectoryComponent},
+    {path:'nav',component: NavComponent},
     {path:'',component:HomeComponent}
 ]
 
