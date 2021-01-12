@@ -1,7 +1,7 @@
-
 <h2>My Hamlets</h2>
+<app-hamlet-detail [hamlet]="selectedHamlet"></app-hamlet-detail>
 <ul class="hamlet-list">
-  <li *ngFor="let hamlet of hamlets" class="list-item">
+  <li *ngFor="let hamlet of hamlets" class="list-item" (click)="onSelect(hamlet)">
     <span class="badge">{{hamlet.id}}</span> {{hamlet.name}}
   </li>
 </ul>

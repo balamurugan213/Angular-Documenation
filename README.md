@@ -197,7 +197,7 @@ export class AppComponent {
 <router-outlet></router-outlet>
 ```
 
-## Adding links and Parameters
+### Adding links and Parameters
 
 - The RouterLink directive helps you customize the anchor element.
 
@@ -207,4 +207,50 @@ export class AppComponent {
       {{ product.name }}
     </a>
   </h3>
+```
+
+---
+
+## Directives
+
+NgFor Structural directive.
+
+```html
+<ul class="hamlet-list">
+  <li *ngFor="let hamlet of hamlets" class="list-item">
+    <span class="badge">{{hamlet.id}}</span> {{hamlet.name}}
+  </li>
+</ul>
+```
+
+---
+
+## Service
+
+Components shouldn't fetch or save data directly.Services are a great way to share information among classes that don't know each other. You'll create a MessageService and inject it in two places.
+
+```cmd
+ng generate service hamlet
+```
+
+This command generates a skeleton Service class in
+src/app/hamlet.service.ts.
+
+```ts
+import { Injectable } from '@angular/core';
+
+@Injectable({
+  providedIn: 'root',
+})
+export class HamletService {
+
+  constructor() { }
+
+}
+```
+
+Now you can use the service by injecting in the constructor.
+
+```ts
+constructor(private hamletService: HamletService) {}
 ```

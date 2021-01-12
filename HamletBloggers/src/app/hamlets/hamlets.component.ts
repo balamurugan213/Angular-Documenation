@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { HamletService } from '../hamlet.service';
 import { Hamlets } from '../hamlets';
-import { Hams } from "../static/mock-hamlets";
+import { MessagesService } from '../messages.service';
+// import { Hams } from "../static/mock-hamlets";
 
 
 @Component({
@@ -10,17 +12,26 @@ import { Hams } from "../static/mock-hamlets";
 })
 export class HamletsComponent implements OnInit {
 
-  // hams="balamurugan213"
-  ham: Hamlets = {
-    id: 1,
-    name: 'balamurugan'
-  };
+  hamlets: Hamlets[] | undefined;
 
-  hamlets:Hamlets[]=Hams;
-
-  constructor() { }
+  selectedHamlet: Hamlets | undefined;
+  
+  
+  constructor(private hamletService: HamletService,private messageService: MessagesService) {}
   
   ngOnInit(): void {
+    this.getHamlet();
   }
+
+  getHamlet(): void {
+    this.hamletService.getHamlets()
+    .subscribe(hamlets =>this.hamlets=hamlets);
+  }
+
+  onSelect(ham: Hamlets): void {
+    this.selectedHamlet=ham;
+    this.messageService.add(`HeroesComponent: Selected hero id=${ham.id}`);
+  }
+
 
 }

@@ -7,13 +7,17 @@ import { RouterModule } from '@angular/router';
 import { APP_ROUTES_PROVIDER } from './app.route';
 import { HamletsComponent } from './hamlets/hamlets.component';
 import { NavComponent } from './nav/nav.component';
+import { HamletDetailComponent } from './hamlet-detail/hamlet-detail.component';
+import { MessageComponent } from './message/message.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     HamletsComponent,
-    NavComponent
+    NavComponent,
+    HamletDetailComponent,
+    MessageComponent
   ],
   imports: [
     BrowserModule,
