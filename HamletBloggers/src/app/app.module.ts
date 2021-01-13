@@ -3,12 +3,12 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import { HomeComponent } from './home/home.component';
-import { RouterModule } from '@angular/router';
-import { APP_ROUTES_PROVIDER } from './app.route';
 import { HamletsComponent } from './hamlets/hamlets.component';
 import { NavComponent } from './nav/nav.component';
 import { HamletDetailComponent } from './hamlet-detail/hamlet-detail.component';
 import { MessageComponent } from './message/message.component';
+import { RoutsModule } from './routs.module';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -22,7 +22,8 @@ import { MessageComponent } from './message/message.component';
   imports: [
     BrowserModule,
     FormsModule,
-    RouterModule.forRoot(APP_ROUTES_PROVIDER)
+    AppRoutingModule,
+    RoutsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

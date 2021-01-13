@@ -4,8 +4,6 @@ import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { AppModule } from './app/app.module';
 import { environment } from './environments/environment';
 
-import { APP_ROUTES_PROVIDER } from "./app/app.route";
-
 if (environment.production) {
   enableProdMode();
 }

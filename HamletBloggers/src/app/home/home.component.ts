@@ -1,5 +1,7 @@
 import { Component, Input, OnInit, Output,EventEmitter } from '@angular/core';
 import { Event } from '@angular/router';
+import { HamletService } from '../hamlet.service';
+import { Hamlets } from '../hamlets';
 
 
 @Component({
@@ -8,27 +10,20 @@ import { Event } from '@angular/router';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  home: String="this is home";
-  val: number=6;
-  book:string="cb";
-  
-  @Input() student: any;
-  @Output() onc=new EventEmitter();
-
-
-
-
-
-  fone:{name:string,state:string}={name:"chennai",state:"india"};
-
-  events(e:any){
-    this.onc.emit(this.fone.name)
-  }
-  constructor() { 
+ 
+  hamlet: Hamlets[] = [];
+  constructor(private hamletService: HamletService) { 
     
   }
 
   ngOnInit(): void {
+    this.getHeroes();
+  }
+
+  getHeroes(): void {
+    this.hamletService.getHamlets()
+      .subscribe((hamlet: Hamlets[]) => this.hamlet = hamlet.slice(1, 5));
+      console.log(this.hamlet)
   }
 
 }

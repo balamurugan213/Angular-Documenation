@@ -209,6 +209,40 @@ export class AppComponent {
   </h3>
 ```
 
+Another way is to generate routing file file :
+
+```cmd
+ng generate module app-routing
+```
+
+app-routing.module.ts
+
+```ts
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
+
+const routes: Routes = [
+  {path:'nav',component: NavComponent},
+  {path:'hamlet',component:HamletsComponent},
+  {path:'',component:HomeComponent}
+];
+
+@NgModule({
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
+})
+export class AppRoutingModule { }
+
+```
+
+Then import in aapp.module.ts:
+
+```ts
+  imports: [
+    AppRoutingModule,
+  ],
+```
+
 ---
 
 ## Directives
